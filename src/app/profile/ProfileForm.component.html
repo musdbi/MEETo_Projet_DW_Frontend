@@ -1,0 +1,24 @@
+<div class="profile-container">
+  <div class="avatar">
+     <img src="assets/images/avatar.png" alt="User Avatar">
+  </div>
+  <div class="user-info">
+     <h2>{{ user?.firstName }} {{ user?.lastName }}</h2>
+     <p><strong>Username - </strong> {{ user?.userName }}</p>
+     <p><strong>Email - </strong> {{ user?.email }}</p>
+     <p><strong>Date of Birth - </strong> {{ user?.dateOfBirth | date }}</p>
+     <p><strong>Contact - </strong> {{ user?.contactNo }}</p>
+     <p><strong>Registration Date - </strong> {{ user?.registrationDate | date }}</p>
+     <div class="events">
+        <p><strong>Registered Events</strong></p>
+        <div *ngIf="!hasRegisteredEvents()"> No incoming event yet, what are you waiting for ? 😀</div>
+        <ul *ngIf="hasRegisteredEvents()">
+           <li *ngFor="let event of registeredEvents">
+              <span class="event-name">{{ event.name }}</span> 
+              <span class="event-date">| {{ event.startEvent | date: 'fullDate' }} at {{ event.startEvent | date: 'shortTime' }}</span>
+           </li>
+        </ul>
+        <button class="feedbackButton" (click)="goToRateEvents()">Wanna rate an event ?</button>
+     </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="event-item">
+  <h3>{{ event.name }}</h3>
+  <p><strong>Start - </strong> {{ event.startEvent | date: 'fullDate' }} at {{ event.startEvent | date: 'shortTime' }}</p>
+  <p><strong>End - </strong> {{ event.endEvent | date: 'fullDate' }} at {{ event.endEvent | date: 'shortTime' }}</p>
+  <p><strong>Description - </strong> {{ event.description }}</p>
+  <button class="participateButton" (click)="participate()">Participate</button>
+</div>
+<hr/>

@@ -1,0 +1,25 @@
+body {
+    background-color: #212121;
+    color: #ffffff;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    flex-direction: column;
+  }
+  
+main {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 12px;
+    background: transparent;
+    z-index: -1;
+}
+

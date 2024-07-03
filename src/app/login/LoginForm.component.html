@@ -1,0 +1,20 @@
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<body>
+   <div class="glass-wrapper">
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <h1>Login</h1>
+      <div class="input-box" [ngClass]="{'has-error': email?.invalid && (email?.dirty || email?.touched)}">
+         <input type="text" placeholder="Email" formControlName="email" required>
+         <i class='bx bx-user'></i>
+      </div>
+      <div class="input-box" [ngClass]="{'has-error': password?.invalid && (password?.dirty || password?.touched)}">
+         <input type="password" placeholder="Password" formControlName="password" required>
+         <i class='bx bx-lock'></i>
+      </div>
+      <button type="submit" class="btn" >Login</button>
+      <div class="register-link">
+         <p>Don't have an account? <a routerLink="/register">Register</a></p>
+      </div>
+      </form>
+   </div>
+</body>

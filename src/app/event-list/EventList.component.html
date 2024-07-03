@@ -1,0 +1,13 @@
+<div>
+  <div style="text-align: center;">
+     <h1 class="event-title">Available Events</h1>
+     <div>
+        <div>
+           <app-event-list-item *ngFor="let event of events" [event]="event"></app-event-list-item>
+        </div>
+     </div>
+  </div>
+</div>
+<div *ngIf="!events || events.length === 0" style="text-align: center;">
+  <h2>No event available yet 😀</h2>
+</div>

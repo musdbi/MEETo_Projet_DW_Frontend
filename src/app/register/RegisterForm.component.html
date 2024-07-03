@@ -1,0 +1,48 @@
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<body>
+    <div class="glass-wrapper">
+        <form [formGroup]="registerForm" (ngSubmit)="onSignup()">
+            <h1>Register</h1>
+            <div class="input-row">
+                <div class="input-box" [ngClass]="{'has-error': userName?.invalid && (userName?.dirty || userName?.touched)}">
+                    <input type="text" placeholder="Username" formControlName="userName" required>
+                    <i class='bx bx-user'></i>
+                </div>
+                <div class="input-box" [ngClass]="{'has-error': email?.invalid && (email?.dirty || email?.touched)}">
+                    <input type="email" placeholder="Email" formControlName="email" required>
+                    <i class='bx bx-envelope'></i>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-box" [ngClass]="{'has-error': pswd?.invalid && (pswd?.dirty || pswd?.touched)}">
+                    <input type="password" placeholder="Password" formControlName="pswd" required>
+                    <i class='bx bx-lock'></i>
+                </div>
+                <div class="input-box" [ngClass]="{'has-error': firstName?.invalid && (firstName?.dirty || firstName?.touched)}">
+                    <input type="text" placeholder="First Name" formControlName="firstName" required>
+                    <i class='bx bx-id-card'></i>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-box" [ngClass]="{'has-error': lastName?.invalid && (lastName?.dirty || lastName?.touched)}">
+                    <input type="text" placeholder="Last Name" formControlName="lastName" required>
+                    <i class='bx bx-id-card'></i>
+                </div>
+                <div class="input-box" [ngClass]="{'has-error': dateOfBirth?.invalid && (dateOfBirth?.dirty || dateOfBirth?.touched)}">
+                    <input type="date" placeholder="Date of Birth" formControlName="dateOfBirth" required>
+                    <i class='bx bx-calendar'></i>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-box" [ngClass]="{'has-error': contactNo?.invalid && (contactNo?.dirty || contactNo?.touched)}">
+                    <input type="text" placeholder="Contact Number" formControlName="contactNo" required>
+                    <i class='bx bx-phone'></i>
+                </div>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="register-link">
+                <p>Already have an account? <a routerLink="/login">Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>

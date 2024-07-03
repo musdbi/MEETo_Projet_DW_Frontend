@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="form-section">
+    <form [formGroup]="eventForm" class="needs-validation" (ngSubmit)="onSubmit()">
+      <br>
+      <div style="text-align: center;">
+        <h1 class="title">Tell us more about your event 🥰</h1></div>
+      <div>
+        <label>Name</label>
+        <input type="text" class="form-control" formControlName="name"
+               [class.is-invalid]="name.invalid && name.touched"
+               [class.is-valid]="name.valid && name.touched">
+        <div *ngIf="name?.invalid && name.touched" class="invalid-feedback text-danger">
+          <div *ngIf="name?.errors?.['required']">Name is required</div>
+          <div *ngIf="name?.errors?.['minlength']">Name should be 5 characters or more</div>
+          <div *ngIf="name?.errors?.['maxlength']">Name should be 150 characters or less</div>
+        </div>
+      </div>
+      <br>
+      <div>
+        <label>Address</label>
+        <input type="text" class="form-control" formControlName="address"
+               [class.is-invalid]="address.invalid && address.touched"
+               [class.is-valid]="address.valid && address.touched">
+        <div *ngIf="address?.invalid && address.touched" class="invalid-feedback text-danger">
+          <div *ngIf="address?.errors?.['required']">Address is required</div>
+        </div>
+      </div>
+      <br>
+      <div>
+        <label>City</label>
+        <input type="text" class="form-control" formControlName="city"
+               [class.is-invalid]="city.invalid && city.touched"
+               [class.is-valid]="city.valid && city.touched">
+        <div *ngIf="city?.invalid && city.touched" class="invalid-feedback text-danger">
+          <div *ngIf="city?.errors?.['required']">City is required</div>
+        </div>
+      </div>
+      <br>
+      <div>
+        <label>Pincode</label>
+        <input type="text" class="form-control" formControlName="pincode"
+               [class.is-invalid]="pincode.invalid && pincode.touched"
+               [class.is-valid]="pincode.valid && pincode.touched">
+        <div *ngIf="pincode?.invalid && pincode.touched" class="invalid-feedback text-danger">
+          <div *ngIf="pincode?.errors?.['required']">Pincode is required</div>
+          <div *ngIf="pincode?.errors?.['pattern']">Pincode should be a valid 5-digit number</div>
+        </div>
+      </div>
+      <br>
+      <div>
+        <label>Description</label>
+        <textarea class="form-control content-textarea" formControlName="description" rows="4"
+                  [class.is-invalid]="description?.invalid && description.touched"
+                  [class.is-valid]="description.valid && description.touched"></textarea>
+        <div *ngIf="description.invalid && description.touched" class="invalid-feedback text-danger">
+          <div *ngIf="description?.errors?.['required']">Description is required</div>
+          <div *ngIf="description?.errors?.['maxlength']">Description should be 2500 characters or less</div>
+        </div>
+      </div>
+      <br>
+      <div>
+        <label>Start date</label>
+        <input type="datetime-local" class="form-control" formControlName="startEvent" id ="startEvent"
+               [class.is-invalid]="startEvent.invalid && startEvent.touched"
+               [class.is-valid]="startEvent.valid && startEvent.touched">
+        <div *ngIf="startEvent?.invalid && startEvent.touched" class="invalid-feedback text-danger">
+          <div *ngIf="startEvent?.errors?.['required']">Start Event is required</div>
+        </div>
+      </div>
+      <br>
+      <div>
+        <label>End date</label>
+        <input type="datetime-local" class="form-control" formControlName="endEvent" id ="endEvent"
+               [class.is-invalid]="endEvent.invalid && endEvent.touched"
+               [class.is-valid]="endEvent.valid && endEvent.touched">
+        <div *ngIf="endEvent?.invalid && endEvent.touched" class="invalid-feedback text-danger">
+          <div *ngIf="endEvent?.errors?.['required']">End Event is required</div>
+          <div *ngIf="eventForm?.errors?.['startBeforeEnd']">End Event must be after Start Event</div>
+        </div>
+      </div>
+      <br>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-outline-danger" style="margin-right: 10px;" (click)="onCancel()">Cancel</button>
+        <button type="submit" class="btn btn-success">Create Event</button>
+      </div>
+    </form>
+  </div>
+  <div class="blob-section">
+    <div class="blob">
+      <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color: rgb(255, 95, 109);"></stop>
+            <stop offset="100%" style="stop-color: rgb(255, 195, 113);"></stop>
+          </linearGradient>
+        </defs>
+        <path fill="url(#gradient)">
+          <animate attributeName="d" dur="10000ms" repeatCount="indefinite"
+            values="M419,297Q397,344,358.5,373Q320,402,273.5,404.5Q227,407,192,382Q157,357,130,325Q103,293,83,244Q63,195,75.5,129Q88,63,153.5,50Q219,37,267,72Q315,107,337.5,143Q360,179,400.5,214.5Q441,250,419,297Z;
+            M422.5,288Q369,326,360.5,400Q352,474,286,468Q220,462,189.5,409Q159,356,134.5,323.5Q110,291,87,243Q64,195,79,132.5Q94,70,160,75.5Q226,81,287.5,57Q349,33,399.5,77.5Q450,122,463,186Q476,250,422.5,288Z;
+            M453.06938,313.32891Q446.73357,376.65783,392.8162,410.91764Q338.89884,445.17744,283.81647,420.39911Q228.73411,395.62078,182.51271,388.47485Q136.29132,381.32891,82.53205,347.9555Q28.77279,314.58209,52.93698,256.97457Q77.10116,199.36705,95.59481,146.47457Q114.08845,93.58209,168.2974,76.81012Q222.50636,60.03814,287.5,43.02543Q352.49364,26.01271,392.07601,79.68353Q431.65837,133.35434,445.53178,191.67717Q459.40519,250,453.06938,313.32891Z;
+            M431.05803,308.73689Q432.38434,367.47377,375.18959,383.16594Q317.99484,398.85811,273.58426,397.38693Q229.17369,395.91574,165.38693,408.63672Q101.60016,421.35771,98.96303,358.11049Q96.3259,294.86328,88.90242,247.84479Q81.47893,200.82631,105.84996,156.34996Q130.22098,111.87361,175.69734,79.89209Q221.17369,47.91057,284.60791,41.82631Q348.04213,35.74205,387.2816,86.19734Q426.52107,136.65262,428.12639,193.32631Q429.73172,250,431.05803,308.73689Z;
+            M440.5,299.5Q403,349,377,409.5Q351,470,287.5,449Q224,428,168.5,418Q113,408,63,364Q13,320,61,264.5Q109,209,119.5,160Q130,111,173.5,64Q217,17,282.5,26.5Q348,36,399.5,78.5Q451,121,464.5,185.5Q478,250,440.5,299.5Z;
+            M432.5,288.5Q369,327,337,348.5Q305,370,264,403.5Q223,437,166.5,424.5Q110,412,87,358.5Q64,305,78.5,254.5Q93,204,122.5,170.5Q152,137,184.5,78.5Q217,20,263,70Q309,120,377.5,122Q446,124,471,187Q496,250,432.5,288.5Z;
+            M418,300.5Q408,351,373.5,398Q339,445,284.5,416Q230,387,190,376Q150,365,124.5,329.5Q99,294,76.5,243.5Q54,193,92,152.5Q130,112,176,85Q222,58,270.5,78.5Q319,99,370.5,119.5Q422,140,425,195Q428,250,418,300.5Z;
+            M419,297Q397,344,358.5,373Q320,402,273.5,404.5Q227,407,192,382Q157,357,130,325Q103,293,83,244Q63,195,75.5,129Q88,63,153.5,50Q219,37,267,72Q315,107,337.5,143Q360,179,400.5,214.5Q441,250,419,297Z">
+          </animate>
+        </path>
+      </svg>
+    </div>
+  </div>
+</div>

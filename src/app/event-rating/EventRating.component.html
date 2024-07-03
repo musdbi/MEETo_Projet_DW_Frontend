@@ -1,0 +1,11 @@
+<div>
+  <div style="text-align: center;">
+     <h1 class="event-title">Express your feelings !</h1>
+     <div *ngIf="registeredEvents.length > 0">
+        <app-event-rating-item *ngFor="let event of registeredEvents" [event]="event"></app-event-rating-item>
+     </div>
+     <div *ngIf="registeredEvents.length === 0">
+        <h2>No registered events available yet 😀</h2>
+     </div>
+  </div>
+</div>
